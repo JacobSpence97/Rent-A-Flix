@@ -1,0 +1,1 @@
+date,name,type_of_rental,price_to_rent,replacement_price,total_price
