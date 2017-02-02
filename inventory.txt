@@ -1,1 +1,6 @@
 name,type_of_rental,price_to_rent,replacement_value
+'Pi','vhs',2.00,5.00
+'Deadpool','dvd',5.00,20.00
+'Doctor Strange', 'blu-ray',8.00,25.00
+'The Hobbit: Extended Edition', 'special edition', 10.00, 30.00
+'The Killing Joke','comic', 10.00,30.00
