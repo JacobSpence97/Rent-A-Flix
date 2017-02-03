@@ -1,4 +1,6 @@
-from core import *
+""" this program is to better the inventory of a rental place and
+also better the customer interface"""
+import core
 
 def main():
     ''' the main function that houses all the other ones'''
@@ -6,7 +8,7 @@ def main():
     if user == 'customer':
         inven = input("Would you like to see our inventory?\t")
         if inven == 'yes':
-            print(inventory('inventory.txt'))
+            print(core.inventory('inventory.txt'))
         elif inven == 'no':
             print('Please see an employee')
         else:
@@ -14,7 +16,7 @@ def main():
     elif user == 'employee':
         job = input("What is the customer wanting to do? rent or return\t")
         if job == 'rent':
-            print(inventory('inventory.txt'))
+            print(core.inventory('inventory.txt'))
             name = input("give the name of the item being rented \t")
             types = input("give the type of rental \t")
             if types == "vhs":
@@ -32,7 +34,7 @@ def main():
             elif types == 'comic':
                 price = 10.00
                 repval = 30.00
-            print(total(name, types, price, repval))
+            print(core.total(name, types, price, repval))
 
 
 if __name__ == '__main__':
