@@ -34,8 +34,7 @@ def main():
             elif types == 'comic':
                 price = 10.00
                 repval = 30.00
-            print(core.total(name, types, price, repval))
-            core.transaction('transaction.txt')
+            print(core.total('transaction.txt', name, types, price, repval))
 
 
 if __name__ == '__main__':
