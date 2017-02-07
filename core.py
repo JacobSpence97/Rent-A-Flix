@@ -3,6 +3,7 @@ also better the customer interface"""
 
 from datetime import datetime
 
+
 def inventory(filename):
     '''string -> list of inventory
     takes a file name and prints it out for the user to see'''
@@ -11,18 +12,13 @@ def inventory(filename):
         inv = [i.replace('\n', '') for i in inv]
         return inv
 
-def total(name, types, price, repval):
+
+def total(filename, name, types, price, repval):
     ''' string,string,int,int -> string 
     finds the total of the final bill and prints a reciept'''
     date = "{:%B %d, %Y}".format(datetime.now())
     totals = int(price) + (int(repval) * 0.1)
     reciept = str(date) + ' ' + name + " " + types + " " + str(totals)
-    return reciept
-
-
-
-def transaction(filename):
-    '''stirng -> string(in file)
-    gets the recepit and writes it to the transactions file'''
     with open(filename, 'w') as file:
-        file.write(total(name, types, price, repval))
+        file.write(reciept)
+    return reciept
