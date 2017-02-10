@@ -1,6 +1,17 @@
 name,type_of_rental,price_to_rent,replacement_value
-'Pi','vhs',2.00,5.00
-'Deadpool','dvd',5.00,20.00
-'Doctor Strange', 'blu-ray',8.00,25.00
-'The Hobbit: Extended Edition', 'special edition', 10.00, 30.00
-'The Killing Joke','comic', 10.00,30.00
+Pi,vhs,2.00,5.00
+Deadpool,dvd,5.00,20.00
+Doctor Strange, blu-ray,8.00,25.00
+The Hobbit: Extended Edition, special edition, 10.00, 30.00
+The Killing Joke,comic, 10.00,30.00
+Hulk,vhs,2.00,5.00
+Iron Man,dvd,5.00,20.00
+Captian America: Civil War, blu-ray,8.00,25.00
+Avatar: Extended Collector's Edition, special edition, 10.00, 30.00
+Hellboy: Seed of Destruction,comic, 10.00,30.00
+It,vhs,2.00,5.00
+X2,dvd,5.00,20.00
+Guardians of the Galaxy, blu-ray,8.00,25.00
+The Dark Knight 2-disc Edition, special edition, 10.00, 30.00
+The Amazing Spider-man,comic, 10.00,30.00
+Bee Movie, vhs, 2.0, 5.0
