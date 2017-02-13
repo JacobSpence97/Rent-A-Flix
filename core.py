@@ -8,8 +8,8 @@ def inventory(filename):
     string = ''
     with open(filename, 'r') as file:
         inv = file.readlines()
-        for item in inv[1:]:
-            string += item + '\n'
+        for item in inv:
+            string += item
         return string
 
 
@@ -21,6 +21,7 @@ def total(filename, name, date, types, price, repval):
     with open(filename, 'a') as file:
         file.write(reciept)
     return reciept
+
 
 def add_inv(filename, item_name, types):
     """(string, string) -> (string)
@@ -49,11 +50,42 @@ def add_inv(filename, item_name, types):
         file.write(item)
     return item
 
-add_inv('test.txt', 'batman', 'dvd')
-# def removeinv(name, types, price, repval):
-#     ''' (strings) -> None
-#     removes item from inventory when rented'''
-#     inventory('inventory.txt')
-#     item = (name, types, price, repval)
 
-#     if item == 
+def removeinv(filename, name, types, price, repval):
+    ''' (str, str, str, str,str) -> None
+    removes item from inventory when rented'''
+    inv = inventory('inventory.txt')
+    inven = inv.split('\n')
+    items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval))
+    string = ''
+    if items in inven:
+        inven.pop(inven.index(items))
+        for item in inven:
+            string += item + '\n'
+        with open(filename, 'w') as file:
+            file.write(string)
+        return string
+    else:
+        with open(filename, 'w') as file:
+            file.write(inv)
+        return inv
+
+
+def returninv(filename, name, types, price, repval):
+    ''' (str, str, str, str,str) -> None
+    returns an item from inventory when rented'''
+    inv = inventory('inventory.txt')
+    inven = inv.split('\n')
+    items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval))
+    string = ''
+    if items not in inven:
+        inven.append(items)
+        for item in inven:
+            string += item + '\n'
+        with open(filename, 'w') as file:
+            file.write(string)
+        return string
+    else:
+        with open(filename, 'w') as file:
+            file.write(inv)
+        return inv
