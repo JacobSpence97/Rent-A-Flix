@@ -35,12 +35,16 @@ def main():
             elif types == 'comic':
                 price = 10.00
                 repval = 30.00
+            else:
+                print('Incorect type')
+                main()
+            core.removeinv('inventory.txt', name, types, price, repval)
             date = "{:%B %d, %Y}".format(datetime.datetime.now())
-            # core.removeinv()
             print(core.total('transaction.txt', name, date, types, price, repval))
         elif job == 'return':
             damage = input('is the rental damaged?\t')
             if damage == 'yes':
+                name = input("whats the name of the rental?\t")
                 types = input("give the type of rental \t")
                 if types == "vhs":
                     repval = 5.00
@@ -52,10 +56,26 @@ def main():
                     repval = 30.00
                 elif types == 'comic':
                     repval = 30.00
+                else:
+                    print('Incorect type')
+                    main()
+                core.returninv('inventory.txt', name, types, price, repval)
                 return repval
             elif damage == 'no':
+                name = input("whats the name of the rental?\t")
+                types = input("give the type of rental \t")
+                if types == "vhs":
+                    repval = 5.00
+                elif types == 'dvd':
+                    repval = 20.00
+                elif types == 'blu-ray':
+                    repval = 25.00
+                elif types == 'special':
+                    repval = 30.00
+                elif types == 'comic':
+                    repval = 30.00
+                core.returninv('inventory.txt', name, types, price, repval)
                 print('please return the customers repval deposit.')
-                # core.returninv()
         elif job == 'inv':
             print(core.inventory('inventory.txt'))
             print('Make sure the item isnt already in the inventory')
