@@ -1,6 +1,6 @@
 '''this file is to test all functions in the main core file'''
-import core
 import os
+import core
 
 def create_test_file(filename):
     '''creates a file to be tested for the functions'''
