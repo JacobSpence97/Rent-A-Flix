@@ -36,6 +36,7 @@ def main():
                 price = 10.00
                 repval = 30.00
             date = "{:%B %d, %Y}".format(datetime.datetime.now())
+            # core.removeinv()
             print(core.total('transaction.txt', name, date, types, price, repval))
         elif job == 'return':
             damage = input('is the rental damaged?\t')
@@ -54,11 +55,13 @@ def main():
                 return repval
             elif damage == 'no':
                 print('please return the customers repval deposit.')
+                # core.returninv()
         elif job == 'inv':
             print(core.inventory('inventory.txt'))
             print('Make sure the item isnt already in the inventory')
             item_name = input('what is the name of the item being added?\t')
-            core.add_inv('inventory.txt', item_name)
+            types = input('what is the type of rental?')
+            core.add_inv('inventory.txt', item_name, types)
         else:
             main()
 
