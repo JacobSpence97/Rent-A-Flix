@@ -14,4 +14,4 @@ X2,dvd,5.00,20.00
 Guardians of the Galaxy, blu-ray,8.00,25.00
 The Dark Knight 2-disc Edition, special edition, 10.00, 30.00
 The Amazing Spider-man,comic, 10.00,30.00
-Bee Movie, vhs, 2.0, 5.0
+Bee Movie, dvd, 5.0, 20.0
