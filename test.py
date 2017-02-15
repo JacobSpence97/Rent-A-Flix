@@ -10,9 +10,10 @@ def create_test_file(filename):
 
 def test_total():
     '''this test testes the function total'''
-    j = core.total(filename, 'test', 'February 03, 2017', 'Test', 2.00, 5.00)
+    create_test_file('test.txt')
+    j = core.total('test.txt', 'test', 'February 03, 2017', 'Test', 2.00, 5.00)
     assert j == 'February 03, 2017 test Test 2.5\n'
-
+    os.remove('test.txt')
 
 def test_inventory():
     '''testes the function inventory'''
@@ -48,6 +49,13 @@ def test_returninv():
     create_test_file('test.txt')
     with open('test.txt', 'a') as file:
         file.write('test,Test,5.00,20.00')
-    vari = core.returninv('test.txt','test','Test',5.00,20.00)
-    assert vari == 'test,Test,5.00,20.00'
+    var = core.returninv('test.txt','test','Test',5.00,20.00)
+    assert var == 'test,Test,5.00,20.00'
+    os.remove('test.txt')
+
+def test_revenue():
+    '''test the function revenue'''
+    create_test_file('test.txt')
+    test = core.revenue('test.txt', 'dvd', 'yes')
+    assert test == 25.0
     os.remove('test.txt')
