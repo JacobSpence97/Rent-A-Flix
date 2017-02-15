@@ -7,12 +7,13 @@ def main():
     ''' the main function that houses all the other ones'''
     user = input("Am I talking to a customer or a employee?\t")
     if user == 'customer':
-        inven = input("Would you like to see our inventory?\t")
-        if inven == 'yes':
+        inven = input("Would you like to see our inventory?\t").lower()
+        if inven == 'yes' or 'sure':
             print(core.inventory('inventory.txt'))
-        elif inven == 'no':
+        elif inven == 'no' or 'nah':
             print('Please see an employee')
         else:
+            print('please enter yes/sure or no/nah')
             main()
     elif user == 'employee':
         job = input("What is the customer wanting to do? rent or return or add_inv?\t").strip().lower()
