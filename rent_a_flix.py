@@ -15,7 +15,7 @@ def main():
         else:
             main()
     elif user == 'employee':
-        job = input("What is the customer wanting to do? rent or return or inv?\t").strip().lower()
+        job = input("What is the customer wanting to do? rent or return or add_inv?\t").strip().lower()
         if job == 'rent':
             print(core.inventory('inventory.txt'))
             name = input("give the name of the item being rented \t")
@@ -62,15 +62,18 @@ def main():
                 repval = 30.00
             core.revenue('revenue.txt', types, damage)
             core.returninv('inventory.txt', name, types, price, repval)
-        elif job == 'inv':
+        elif job == 'add_inv':
             print(core.inventory('inventory.txt'))
             print('Make sure the item isnt already in the inventory')
             item_name = input('what is the name of the item being added?\t')
             types = input('what is the type of rental?  vhs,dvd,blu-ray,special,comic\t')
             core.add_inv('inventory.txt', item_name, types)
         else:
+            print("please enter a correct item")
             main()
-
+    else:
+        print("please enter a correct item")
+        main()
 
 if __name__ == '__main__':
     main()
