@@ -54,7 +54,7 @@ def add_inv(filename, item_name, types):
 def removeinv(filename, name, types, price, repval):
     ''' (str, str, str, str,str) -> None
     removes item from inventory when rented'''
-    inv = inventory('inventory.txt')
+    inv = inventory(filename)
     inven = inv.split('\n')
     items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval))
     string = ''
@@ -74,7 +74,7 @@ def removeinv(filename, name, types, price, repval):
 def returninv(filename, name, types, price, repval):
     ''' (str, str, str, str,str) -> None
     returns an item from inventory when rented'''
-    inv = inventory('inventory.txt')
+    inv = inventory(filename)
     inven = inv.split('\n')
     items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval))
     string = ''
@@ -89,3 +89,33 @@ def returninv(filename, name, types, price, repval):
         with open(filename, 'w') as file:
             file.write(inv)
         return inv
+
+def revenue(filename, types, damage):
+    '''(str,str,str) -> None
+     gets the total revenue of the transaction and writes it to a txt file'''
+    if types == 'vhs':
+        price = 2.00
+        repval = 5.00
+    elif types == 'dvd':
+        price = 5.00
+        repval = 20.00
+    elif types == 'blu-ray':
+        price = 8.00
+        repval = 25.00
+    elif types == 'special':
+        price = 10.00
+        repval = 30.00
+    elif types == 'comic':
+        price = 10.00
+        repval = 30.00
+    else:
+        print("invalad type")
+    deposit = int(repval) * 0.1
+    revenue = int(price) + deposit
+    if damage == 'yes':
+        revenue += (repval - deposit)
+    elif damage == 'no':
+        revenue -= deposit
+    
+    with open(filename, 'a') as file:
+        file.write(str(revenue))
