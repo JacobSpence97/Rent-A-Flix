@@ -55,8 +55,8 @@ def removeinv(filename, name, types, price, repval):
     ''' (str, str, str, str,str) -> None
     removes item from inventory when rented'''
     inv = inventory(filename)
-    inven = inv.split('\n')
-    items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval))
+    inven = inv.split('\n').lower()
+    items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval)).lower()
     string = ''
     if items in inven:
         inven.pop(inven.index(items))
@@ -75,8 +75,8 @@ def returninv(filename, name, types, price, repval):
     ''' (str, str, str, str,str) -> None
     returns an item from inventory when rented'''
     inv = inventory(filename)
-    inven = inv.split('\n')
-    items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval))
+    inven = inv.split('\n').lower()
+    items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval)).lower()
     string = ''
     if items not in inven:
         inven.append(items)
