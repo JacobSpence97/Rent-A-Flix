@@ -119,3 +119,4 @@ def revenue(filename, types, damage):
     
     with open(filename, 'a') as file:
         file.write(str(revenue))
+        return revenue
