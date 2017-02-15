@@ -16,7 +16,8 @@ def inventory(filename):
 def total(filename, name, date, types, price, repval):
     ''' (string,string,string,int,int) -> (string)
     finds the total of the final bill and prints a reciept'''
-    totals = int(price) + (int(repval) * 0.1)
+    tax = (int(price) * .07)
+    totals = int(price) + (int(repval) * 0.1) + tax 
     reciept = (str(date) + ' ' + name + " " + types + " " + str(totals) + '\n')
     with open(filename, 'a') as file:
         file.write(reciept)
@@ -55,8 +56,8 @@ def removeinv(filename, name, types, price, repval):
     ''' (str, str, str, str,str) -> None
     removes item from inventory when rented'''
     inv = inventory(filename)
-    inven = inv.split('\n').lower()
-    items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval)).lower()
+    inven = inv.split('\n')
+    items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval))
     string = ''
     if items in inven:
         inven.pop(inven.index(items))
@@ -75,8 +76,8 @@ def returninv(filename, name, types, price, repval):
     ''' (str, str, str, str,str) -> None
     returns an item from inventory when rented'''
     inv = inventory(filename)
-    inven = inv.split('\n').lower()
-    items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval)).lower()
+    inven = inv.split('\n')
+    items = (name + ',' + types + ',' + '{:.2f}'.format(price) + ',' + '{:.2f}'.format(repval))
     string = ''
     if items not in inven:
         inven.append(items)
@@ -118,5 +119,5 @@ def revenue(filename, types, damage):
         revenue -= deposit
     
     with open(filename, 'a') as file:
-        file.write(str(revenue))
+        file.write(str(revenue) + '\n')
         return revenue
