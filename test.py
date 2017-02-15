@@ -12,7 +12,7 @@ def test_total():
     '''this test testes the function total'''
     create_test_file('test.txt')
     j = core.total('test.txt', 'test', 'February 03, 2017', 'Test', 2.00, 5.00)
-    assert j == 'February 03, 2017 test Test 2.5\n'
+    assert j == 'February 03, 2017 test Test 2.64\n'
     os.remove('test.txt')
 
 def test_inventory():
