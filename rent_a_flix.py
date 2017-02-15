@@ -19,7 +19,7 @@ def main():
         if job == 'rent':
             print(core.inventory('inventory.txt'))
             name = input("give the name of the item being rented \t")
-            types = input("give the type of rental \t")
+            types = input("give the type of rentalvhs,dvd,blu-ray,special,comic \t")
             if types == "vhs":
                 price = 2.00
                 repval = 5.00
@@ -42,45 +42,14 @@ def main():
             date = "{:%B %d, %Y}".format(datetime.datetime.now())
             print(core.total('transaction.txt', name, date, types, price, repval))
         elif job == 'return':
-            damage = input('is the rental damaged?\t')
-            if damage == 'yes':
-                name = input("whats the name of the rental?\t")
-                types = input("give the type of rental \t")
-                if types == "vhs":
-                    repval = 5.00
-                elif types == 'dvd':
-                    repval = 20.00
-                elif types == 'blu-ray':
-                    repval = 25.00
-                elif types == 'special':
-                    repval = 30.00
-                elif types == 'comic':
-                    repval = 30.00
-                else:
-                    print('Incorect type')
-                    main()
-                core.returninv('inventory.txt', name, types, price, repval)
-                return repval
-            elif damage == 'no':
-                name = input("whats the name of the rental?\t")
-                types = input("give the type of rental \t")
-                if types == "vhs":
-                    repval = 5.00
-                elif types == 'dvd':
-                    repval = 20.00
-                elif types == 'blu-ray':
-                    repval = 25.00
-                elif types == 'special':
-                    repval = 30.00
-                elif types == 'comic':
-                    repval = 30.00
-                core.returninv('inventory.txt', name, types, price, repval)
-                print('please return the customers repval deposit.')
+            types = input('what is the type of the rental?')
+            damage =input('was there any damage to the rental?')
+            core.revenue('tevenue.txt', types, damage)
         elif job == 'inv':
             print(core.inventory('inventory.txt'))
             print('Make sure the item isnt already in the inventory')
             item_name = input('what is the name of the item being added?\t')
-            types = input('what is the type of rental?')
+            types = input('what is the type of rental?vhs,dvd,blu-ray,special,comic\t')
             core.add_inv('inventory.txt', item_name, types)
         else:
             main()
