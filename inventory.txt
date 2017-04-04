@@ -13,7 +13,4 @@ The Dark Knight 2-disc Edition,special edition,10.00,30.00
 The Amazing Spider-man,comic,10.00,30.00
 Bee Movie,dvd,5.00,20.00
 Lord of the Rings: Fellowship of the Rings,vhs,2.00,5.00
-Pi,vhs,2.00,5.00
-
-
 Doctor Strange,blu-ray,8.00,25.00

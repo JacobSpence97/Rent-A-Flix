@@ -2,16 +2,21 @@
 also better the customer interface"""
 import datetime
 import core
+from os import system
 
 def main():
     ''' the main function that houses all the other ones'''
-    user = input("Am I talking to a customer or a employee?\t")
-    if user == 'customer':
+    user = input("Am I talking to a customer or a employee? press 'Q or q' to quit \t")
+    if user == 'Q' or user == 'q':
+        SystemExit()
+    elif user == 'customer':
         inven = input("Would you like to see our inventory?\t").lower()
-        if inven == 'yes' or 'sure':
+        if inven == 'yes' or inven == 'sure':
             print(core.inventory('inventory.txt'))
-        elif inven == 'no' or 'nah':
+            main()
+        elif inven == 'no' or inven == 'nah':
             print('Please see an employee')
+            main()
         else:
             print('please enter yes/sure or no/nah')
             main()
@@ -42,10 +47,11 @@ def main():
             core.removeinv('inventory.txt', name, types, price, repval)
             date = "{:%B %d, %Y}".format(datetime.datetime.now())
             print(core.total('transaction.txt', name, date, types, price, repval))
+            main()
         elif job == 'return':
             name = input('what is the name of the renturning rental?\t')
             types = input('what is the type of the rental?\t')
-            damage =input('was there any damage to the rental?\t')
+            damage = input('was there any damage to the rental?\t')
             if types == "vhs":
                 price = 2.00
                 repval = 5.00
@@ -63,12 +69,14 @@ def main():
                 repval = 30.00
             core.revenue('revenue.txt', types, damage)
             core.returninv('inventory.txt', name, types, price, repval)
+            main()
         elif job == 'add_inv':
             print(core.inventory('inventory.txt'))
             print('Make sure the item isnt already in the inventory')
             item_name = input('what is the name of the item being added?\t')
             types = input('what is the type of rental?  vhs,dvd,blu-ray,special,comic\t')
             core.add_inv('inventory.txt', item_name, types)
+            main()
         else:
             print("please enter a correct item")
             main()

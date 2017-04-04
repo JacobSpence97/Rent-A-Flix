@@ -25,7 +25,7 @@ def total(filename, name, date, types, price, repval):
 
 
 def add_inv(filename, item_name, types):
-    """(string, string) -> (string)
+    """(string, string, string) -> (string)
     adds new inventory to the inventory file"""
     if types == 'vhs':
         price = 2.00
